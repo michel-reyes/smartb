@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import HeaderLayout from './HeaderLayout';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import SidebarLayout from './SidebarLayout';
-import BreadCrumbLayout from './BreadCrumbLayout';
+import { Layout, Menu } from 'antd';
+import { Menu as MenuIcon, User, VideoCamera, Upload as IconUpload } from '@ant-design/icons';
 
 const Layouts = () => {
   const { SubMenu } = Menu;
@@ -31,10 +29,21 @@ const Layouts = () => {
           top: 0,
           left: 0
         }}>
-        <div style={{
-          height: '32px',
-          background: 'red',
-          margin: '16px'}} />
+        <div
+          style={{
+            position: 'relative',
+            height: 64,
+            overflow: 'hidden',
+            transition: 'all .2s'
+          }}>
+
+          <MenuIcon
+            style={{
+              padding: `24px ${collapsed ? 32 : 24}px`,
+              transition: 'all .2s'
+          }}
+          onClick={toggle}/>
+        </div>
         <Menu
           style={{
             padding: '16px 0'
@@ -46,7 +55,7 @@ const Layouts = () => {
             key="sub1"
             title={
               <span>
-                <Icon type="mail" />
+                <User />
                 <span>Navigation One</span>
               </span>
             }
@@ -60,7 +69,7 @@ const Layouts = () => {
             key="sub2"
             title={
               <span>
-                <Icon type="appstore" />
+                <VideoCamera />
                 <span>Navigation Two</span>
               </span>
             }
@@ -85,14 +94,6 @@ const Layouts = () => {
             width: `calc(100% - ${collapsed ? 80 : 256}px)`,
             backgroundColor: 'white'
           }}>
-          <Icon
-            style={{
-              padding: '19px 24px'
-            }}
-            className="trigger"
-            type={collapsed ? 'menu-unfold' : 'menu-fold'}
-            onClick={() => toggle()}
-          />
         </Header>
         <Content
           style={{
