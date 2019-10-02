@@ -1,22 +1,26 @@
-.App {
-  text-align: center;
+/* Buttons */
+.ant-btn {
+  letter-spacing: .25px;
+  min-width: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
+/* Checkbox / Radio */
+.ant-checkbox-inner {
+  border-color: #5f6368;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ant-radio-inner {
+  border-color: #5f6368;
+  /* border-width: 2px; */
 }
 
-.App-link {
-  color: #09d3ac;
+.ant-select-dropdown-menu {
+  padding: 5px 0;
+}
+
+
+/* Input */
+.ant-input:focus,
+.ant-select-selection:focus {
+  box-shadow: inset 0 0 0 1.5px #4285f4;
 }
