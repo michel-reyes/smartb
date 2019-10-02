@@ -1,12 +1,30 @@
 import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
-import { Menu as MenuIcon, User, VideoCamera, Upload as IconUpload } from '@ant-design/icons';
+import { Layout, Menu, Dropdown, Row, Col, Avatar } from 'antd';
+import { Menu as MenuIcon, User, VideoCamera, Setting, Logout } from '@ant-design/icons';
 
 const Layouts = () => {
   const { SubMenu } = Menu;
   const { Header, Content, Sider } = Layout;
 
   const [collapsed, setCollapsed] = useState(false);
+
+  const userMenu = (
+    <Menu mode="inline">
+      <Menu.Item>
+        <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+          <Setting style={{ marginRight: 5 }} />
+          Account settings
+      </a>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item>
+        <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+          <Logout style={{ marginRight: 5 }} />
+          Logout
+      </a>
+      </Menu.Item>
+    </Menu>
+  );
 
   const toggle = () => {
     setCollapsed(
@@ -94,6 +112,30 @@ const Layouts = () => {
             width: `calc(100% - ${collapsed ? 80 : 256}px)`,
             backgroundColor: 'white'
           }}>
+          <div>
+            <Row type="flex" justify="space-between">
+              <Col span={4}>col-4</Col>
+              <Col span={4}>
+                <Dropdown overlay={userMenu}>
+                  <span
+                    className="ant-dropdown-link"
+                    style={{
+                      cursor: 'pointer',
+                      height: 64,
+                      display: 'inline-block'
+                    }}
+                  >
+                    <Avatar
+                      style={{
+                        margin: '20px 8px 20px 0'
+                      }}
+                      src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" />
+                    User name
+                  </span>
+                </Dropdown>
+              </Col>
+            </Row>
+          </div>
         </Header>
         <Content
           style={{
